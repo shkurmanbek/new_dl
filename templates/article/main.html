@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="{% static 'css/navbar-top-fixed.css' %}" rel="stylesheet">
+    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+    <title>{% block head_title %}{% endblock %}</title>
+    <style>
+      .form-group {
+        margin-top: 10px;
+      }
+    </style>
+    {% block extra_head %}
+    {% endblock %}
+    <style>
+      .form-group {
+        margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="{% static 'images/iitu.jpg' %}" alt="IITU" width="20px" height="20px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+        <form class="d-flex">
+                <form action="{% url "articles" %}">
+                          {% csrf_token %}
+                    <input class="form-control me-2" type="search" name="search_field" value="" placeholder="Search" aria-label="Search">
+                    <input class="btn btn-outline-success" type="submit" name="Search" value="Search">
+                </form>
+          {% if user.is_authenticated %}
+          <a class="btn btn-outline-success" href="{% url 'account_email' %}">Change E-mail</a>
+          <a class="btn btn-outline-secondary" href="{% url 'home' %}">Home</a>
+          <a class="text-light btn btn-outline-warning" href="{% url 'account_logout' %}">{{ user.first_name }} (Sign Out)</a>
+          {% else %}
+              <a class="text-light btn btn-outline-success" href="{% url 'account_login' %}">Sign In</a>
+              <a class="text-light btn btn-outline-warning" href="{% url 'account_signup' %}">Sign Up</a>
+          {% endif %}
+      </form>
+    </div>
+  </div>
+</nav>
+{#<div class="top-bar">#}
+{#  <div class="top-bar-left">#}
+{#    <ul class="menu">#}
+{#        <li><u><a href="/"></a></u></li>#}
+{#        {% if user.is_authenticated %}#}
+{#            <li><u style="text-decoration-color: #258faf;"><a href="/user/">Subjects</a></u></li>#}
+{#            <li><u style="text-decoration-color: #258faf"><a href="/mail/">Mail</a></u></li>#}
+{#        {% endif %}#}
+{#    </ul>#}
+{#</div>#}
+
+{% block body %}
+    {% if messages %}
+      <div class="p-2">
+        {% for message in messages %}
+          <div class="text-center border-bottom">{{message}}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% block home %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    {% block article %}{% endblock %}
+</div>
+<footer class="pt-5 my-5 text-muted border-top">
+    Created by the Bootstrap team &middot; &copy; 2021
+</footer>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
+</html>
+
