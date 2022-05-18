@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-yqy&wf40gv4h&b$+bl3_o1c5p-^)m)6j(@()jhdpcxq#w0fe5d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -47,10 +47,11 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.github',
     #
     'crispy_forms',
-    'article'
+    'article',
+    'research'
 ]
 LOGIN_REDIRECT_URL = 'home'
-SITE_ID=1
+SITE_ID = 1
 
 # 386095399250-sm9l1p7c9gk7liv4leqh0tebdpp3t0ve.apps.googleusercontent.com
 # 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
@@ -151,6 +152,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'djangoProject/static'
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

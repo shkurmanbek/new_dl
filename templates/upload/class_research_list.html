@@ -1,0 +1,13 @@
+{% extends 'upload/home_upload.html' %}
+
+{% block upload_dashboard %}
+  <h2>Books (Class-Based View)</h2>
+  <p>
+    <a href="{% url 'class_upload_research' %}" class="btn btn-primary">Upload book</a>
+  </p>
+{% endblock %}
+
+{% block footer %}
+    <footer class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    Created by the Qurmanbek team &middot; &copy; 2021
+</footer>{% endblock %}

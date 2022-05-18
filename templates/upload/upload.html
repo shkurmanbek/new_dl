@@ -1,0 +1,35 @@
+{% extends 'dashboard/home.html' %}
+{% block upload_research %}
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"> Upload {{ user.first_name }}'s Research</h1>
+
+              <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+                  <input type="file" name="document">
+            <button type="submit" class="btn btn-sm btn-outline-secondary">Upload</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+              </form>
+          </div>
+          {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+    </main>
+{% endblock %}
+{#  <h2>Upload</h2>#}
+{#  <form method="post" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    <input type="file" name="document">#}
+{#    <button type="submit">Upload file</button>#}
+{#  </form>#}
+{#  {% if url %}#}
+{#    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>#}
+{#  {% endif %}#}
+{#{% endblock %}#}
+{#© 2021 GitHub, Inc.#}
+{#Terms#}
+{#Privacy#}
+{% block footer %}
+    <footer class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    Created by the Qurmanbek team &middot; &copy; 2021
+</footer>{% endblock %}

@@ -1,6 +1,7 @@
 {% extends "article/main.html"%}
 {% load static %}
 {% block article %}
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
     <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
     <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
         <img src="{% static 'images/iitu.jpg' %}" alt="IITU" width="90px" height="90px">
@@ -43,4 +44,5 @@
             {% endif %}
             </ul>
 </nav>
+    </div>
 {% endblock %}

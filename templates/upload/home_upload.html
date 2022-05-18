@@ -1,0 +1,25 @@
+{% extends 'upload/base_upload.html' %}
+
+{% block upload_research %}
+  <div class="bd-example">
+        <div class="mb-3">
+          <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+        </div>
+        <div class="mb-3">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <input type="file" class="form-control form-control-lg" aria-label="Large file input example">
+        </div>
+        </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    Created by the Qurmanbek team &middot; &copy; 2021
+</footer>{% endblock %}

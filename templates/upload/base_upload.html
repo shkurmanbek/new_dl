@@ -1,0 +1,13 @@
+{% extends 'dashboard/home.html' %}
+{% block head_title %}Upload Field{% endblock %}
+{% block upload_dashboard %}
+<h1 class="h1"> {{ user.first_name }}'s Research Upload System</h1>
+<a class="nav-link" href="{% url 'upload' %}">Simple Upload</a>
+<a class="nav-link" href="{% url 'home' %}">Home</a>
+<a class="nav-link" href="{% url 'research_list' %}">Model Forms Upload</a>
+<a class="nav-link" href="{% url 'class_research_list' %}">Model Forms Upload (CBV)</a>
+{% endblock %}
+{% block table %}
+    <div></div>
+{% endblock %}
+

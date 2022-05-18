@@ -1,0 +1,26 @@
+{% extends 'dashboard/home.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block upload_dashboard %}
+<h1 class="h2"> Upload {{ user.first_name }}'s Research</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+              <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+                  {{ form|crispy }}
+    <input type="submit" class="btn btn-sm btn-outline-secondary">Upload research</input>
+  </form>
+          </div>
+          {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+        </div>
+{% endblock %}
+{% block table %} {% endblock %}
+
+{% block footer %}
+    <footer class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    Created by the Qurmanbek team &middot; &copy; 2021
+</footer>
+{% endblock %}

@@ -1,5 +1,5 @@
 {% extends "article/main.html" %}
-
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -28,8 +28,12 @@
       <div class="login-or border-top border-bottom my-3">{% trans 'OR' %}</div>
 
     </div>
+        <a target="_blank" href="https://192.168.43.199/simplesaml/module.php/core/loginuserpass.php?AuthState=_9727d7e10e1752c3db560334250ce60292f1e3d062%3Ahttps%3A%2F%2F192.168.43.199%2Fsimplesaml%2Fmodule.php%2Fcore%2Fas_login.php%3FAuthId%3Dexample-userpass%26ReturnTo%3Dhttps%253A%252F%252F192.168.43.199%252Fsimplesaml%252Fmodule.php%252Fcore%252Fauthenticate.php%253Fas%253Dexample-userpass" class="btn btn-warning">
+            <img src="{% with 'logo/ssplogo-fish-only.jpg' as image %}
+    {% static image %}
+    {% endwith %}
+    {% include "socialaccount/snippets/login_extra.html" %}" height="50"/>SIGN IN WITH SSO</a>
 
-    {% include "socialaccount/snippets/login_extra.html" %}
 
     {% else %}
     <p>{% blocktrans %}If you have not created an account yet, then please
